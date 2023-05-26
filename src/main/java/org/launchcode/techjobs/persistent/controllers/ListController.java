@@ -1,8 +1,10 @@
 package org.launchcode.techjobs.persistent.controllers;
 
 import org.launchcode.techjobs.persistent.models.Job;
+import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.JobRepository;
 import org.launchcode.techjobs.persistent.models.JobData;
+import org.launchcode.techjobs.persistent.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +23,26 @@ public class ListController {
     @Autowired
     private JobRepository jobRepository;
 
+    @Autowired
+    EmployerRepository employerRepository;
+
+    @Autowired
+    SkillRepository skillRepository;
+
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     public ListController () {
 
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
+//        columnChoices.put("location", "Location");
+//        columnChoices.put("positionType", "Position Type");
         columnChoices.put("skill", "Skill");
+//        tableChoices.put("all", "Full Job List");
+//        tableChoices.put("employer", JobData.getAllEmployers());
+//        tableChoices.put("location", JobData.getAllLocations());
+//        tableChoices.put("positionType", JobData.getAllPositionTypes());
+//        tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
 
     }
 
