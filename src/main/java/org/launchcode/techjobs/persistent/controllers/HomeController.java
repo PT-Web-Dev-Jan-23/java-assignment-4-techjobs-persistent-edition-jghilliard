@@ -56,13 +56,16 @@ public class HomeController {
 
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Job");
-            Employer employer = (Employer) oEmployer.get();
-            newJob.setEmployer(employer);
-            jobRepository.save(newJob);
+//            model.addAttribute("title", "Add Job");
+//            Employer employer = (Employer) oEmployer.get();
+//            newJob.setEmployer(employer);
+//            jobRepository.save(newJob);
             return "add";
         }
-
+        model.addAttribute("title", "Add Job");
+        Employer employer = (Employer) oEmployer.get();
+        newJob.setEmployer(employer);
+        jobRepository.save(newJob);
         return "redirect:";
     }
 
