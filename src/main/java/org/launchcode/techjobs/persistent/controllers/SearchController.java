@@ -37,7 +37,7 @@ public class SearchController {
         }
         model.addAttribute("columns", columnChoices);
         model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
-        model.addAttribute("jobs", jobs);
+        model.addAttribute("jobs", jobRepository.findAll());
 
         return "search";
     }

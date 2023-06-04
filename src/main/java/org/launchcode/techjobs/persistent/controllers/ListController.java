@@ -24,31 +24,26 @@ public class ListController {
     private JobRepository jobRepository;
 
     @Autowired
-    EmployerRepository employerRepository;
+    private EmployerRepository employerRepository;
 
     @Autowired
-    SkillRepository skillRepository;
+    private SkillRepository skillRepository;
 
     static HashMap<String, String> columnChoices = new HashMap<>();
+    //static HashMap<String, String> tableChoices = new HashMap<>();
 
     public ListController () {
-
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
-//        columnChoices.put("location", "Location");
-//        columnChoices.put("positionType", "Position Type");
         columnChoices.put("skill", "Skill");
-//        tableChoices.put("all", "Full Job List");
-//        tableChoices.put("employer", JobData.getAllEmployers());
-//        tableChoices.put("location", JobData.getAllLocations());
-//        tableChoices.put("positionType", JobData.getAllPositionTypes());
-//        tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
-
     }
+
+
 
     @RequestMapping("")
     public String list(Model model) {
-
+        model.addAttribute("employers", employerRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "list";
     }
 

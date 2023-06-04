@@ -17,7 +17,6 @@ public class Employer extends AbstractEntity {
     private String location;
 
 
-
 //    Within Employer, add a private property jobs of type List<Job> and initialize it to an empty ArrayList.
 //    After we set up the Job class to work with Employer objects, this list will represent the list of all items in a given job.
 //    We’ll do this in a bit.
@@ -34,6 +33,10 @@ public class Employer extends AbstractEntity {
 //    }
 
     public Employer(){}
+
+    public Employer(String local){
+        this.location = local;
+    }
 
     public String getLocation() {
         return location;
