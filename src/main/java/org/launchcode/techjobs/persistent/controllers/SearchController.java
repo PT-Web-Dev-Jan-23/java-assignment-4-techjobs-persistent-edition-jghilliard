@@ -24,6 +24,7 @@ public class SearchController {
     @RequestMapping("")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("title", "Search Tech Jobs");
         return "search";
     }
 

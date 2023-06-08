@@ -23,12 +23,13 @@ public class SkillController {
 
     @GetMapping("")
     public String index(Model model){
-        //model.addAttribute("title", "All Skills: ");
+        model.addAttribute("title", "All Skills: ");
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
+        model.addAttribute("title", "Add a Skill");
         model.addAttribute(new Skill());
         return "skills/add";
     }
@@ -52,6 +53,7 @@ public class SkillController {
         Optional optSkill = skillRepository.findById(skillId);
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
+            model.addAttribute("title", "Skill Info");
             model.addAttribute("skill", skill);
             return "skills/view";
         } else {
